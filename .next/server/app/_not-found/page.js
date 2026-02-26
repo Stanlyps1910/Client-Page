@@ -1,0 +1,13 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_not-found/page.js")
+R.c("server/chunks/ssr/photography-portal_66ac9f8f._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__35beb7a5._.js")
+R.c("server/chunks/ssr/f7556_next_dist_esm_build_templates_app-page_947bd6e4.js")
+R.c("server/chunks/ssr/[root-of-the-server]__5383711b._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__8e9fc1b9._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__2580c3fb._.js")
+R.c("server/chunks/ssr/photography-portal_b8378dc8._.js")
+R.c("server/chunks/ssr/f7556_next_dist_client_components_0557e486._.js")
+R.c("server/chunks/ssr/f7556_next_dist_client_components_builtin_forbidden_d65df0f2.js")
+R.c("server/chunks/ssr/photography-portal__next-internal_server_app__not-found_page_actions_4bae55c6.js")
+R.m(52708)
+module.exports=R.m(52708).exports
