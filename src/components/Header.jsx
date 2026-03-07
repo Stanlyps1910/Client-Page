@@ -2,88 +2,94 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
-    const location = useLocation();
-    const pathname = location.pathname;
+  const location = useLocation();
+  const pathname = location.pathname;
 
-    const isActive = (path) => pathname === path;
+  const isActive = (path) => pathname === path;
 
-    return (
-        <header className="header">
-            <div className="header-flex">
-                <Link to="/">
-                    <div
-                        className="brand-container"
-                        style={{ display: "flex", alignItems: "center", gap: "12px", cursor: "pointer" }}
-                    >
-                        <img
-                            src="/logo_new.png"
-                            alt="Team Alpha"
-                            style={{ height: "50px" }}
-                        />
-                        <span
-                            style={{
-                                fontFamily: "Playfair Display, serif",
-                                fontWeight: "700",
-                                fontSize: "1.5rem",
-                                textTransform: "uppercase",
-                                letterSpacing: "1px",
-                            }}
-                        >
-                            TEAM ALPHA
-                        </span>
-                    </div>
-                </Link>
+  return (
+    <header className="header">
+      <div className="header-flex">
+        <Link to="/">
+          <div
+            className="brand-container"
+            style={{ display: "flex", alignItems: "center", gap: "12px", cursor: "pointer" }}
+          >
+            <img
+              src="/logo_new.png"
+              alt="Team Alpha"
+              style={{ height: "45px", filter: "brightness(1.2)" }}
+            />
+            <span
+              style={{
+                fontFamily: "Playfair Display, serif",
+                fontWeight: "600",
+                fontSize: "1.4rem",
+                textTransform: "uppercase",
+                letterSpacing: "2px",
+                color: "var(--primary)"
+              }}
+            >
+              TEAM ALPHA
+            </span>
+          </div>
+        </Link>
 
-                <nav className="nav">
-                    <Link to="/" className={isActive("/") ? "active" : ""}>
-                        Home
-                    </Link>
-                    <Link to="/gallery" className={isActive("/gallery") ? "active" : ""}>
-                        Gallery
-                    </Link>
-                    <Link to="/chats" className={isActive("/chats") ? "active" : ""}>
-                        Chats
-                    </Link>
+        <nav className="nav">
+          <Link to="/" className={isActive("/") ? "active" : ""}>
+            Home
+          </Link>
+          <Link to="/gallery" className={isActive("/gallery") ? "active" : ""}>
+            Gallery
+          </Link>
+          <Link to="/chats" className={isActive("/chats") ? "active" : ""}>
+            Chats
+          </Link>
+          <Link to="/cloud" className={isActive("/cloud") ? "active" : ""}>
+            Cloud
+          </Link>
 
-                    <div className="social-nav">
-                        <a
-                            href="https://www.instagram.com/teamalpha_crew/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram"
-                            className="nav-icon"
-                        >
-                            <img src="/instagram.png" alt="Instagram" style={{ height: "24px", width: "24px", objectFit: "contain" }} />
-                        </a>
-                        <a
-                            href="https://wa.me/919110603953"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="WhatsApp"
-                            className="nav-icon"
-                        >
-                            <img src="/whatsapp.png" alt="WhatsApp" style={{ height: "24px", width: "24px", objectFit: "contain" }} />
-                        </a>
-                    </div>
-                </nav>
-            </div>
+          <div className="social-nav">
+            <a
+              href="https://www.instagram.com/teamalpha_crew/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="nav-icon"
+            >
+              <img src="/instagram.png" alt="Instagram" style={{ height: "20px", width: "20px", filter: "invert(1) brightness(2)" }} />
+            </a>
+            <a
+              href="https://wa.me/919110603953"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="nav-icon"
+            >
+              <img src="/assets/whatsapp.png" alt="WhatsApp" style={{ height: "20px", width: "20px" }} />
+            </a>
+          </div>
+        </nav>
+      </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .header {
-          background: #f7f5f2;
-          box-shadow: 0 2px 10px rgb(0 0 0 / 0.05);
+          background: var(--glass);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border-bottom: 1px solid var(--border);
           position: sticky;
           top: 0;
-          z-index: 100;
+          z-index: 1000;
         }
 
         .header-flex {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 20px 24px;
-          max-width: 1200px;
+          padding: 12px 40px;
+          max-width: 1400px;
           margin: auto;
         }
 
@@ -94,42 +100,59 @@ export default function Header() {
         }
 
         .nav a {
-          color: #1c1c1c;
+          color: var(--text-muted);
           text-decoration: none;
           font-weight: 500;
           font-family: "Inter", sans-serif;
-          font-size: 16px;
-          padding: 6px 12px;
-          background: none;
-          border: none;
-          cursor: pointer;
+          font-size: 13px;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          padding: 8px 16px;
+          border-radius: var(--radius);
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .nav a:hover,
+        .nav a:hover {
+          color: var(--text-main);
+          background: rgba(0,0,0,0.03);
+        }
+
         .nav a.active {
-          opacity: 0.6;
+          color: var(--primary);
+          background: rgba(212, 175, 55, 0.08);
+          font-weight: 600;
         }
 
         .social-nav {
           display: flex;
           gap: 16px;
           margin-left: 12px;
-          border-left: 1px solid #ddd;
+          border-left: 1px solid var(--border);
           padding-left: 20px;
         }
 
         .nav-icon {
-          color: #1c1c1c;
-          transition: transform 0.3s, opacity 0.3s;
+          transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           display: flex;
           align-items: center;
+          opacity: 0.8;
         }
 
         .nav-icon:hover {
           transform: translateY(-2px);
-          opacity: 0.7;
+          opacity: 1;
+        }
+
+        .nav-icon img {
+            height: 18px;
+            width: 18px;
+        }
+
+        @media (max-width: 768px) {
+          .header-flex { padding: 12px 20px; }
+          .nav { display: none; }
         }
       `}} />
-        </header>
-    );
+    </header>
+  );
 }

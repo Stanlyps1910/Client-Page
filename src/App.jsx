@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
 import Chats from './pages/Chats'
+import Cloud from './pages/Cloud'
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/gallery" element={<Gallery />} />
                         <Route path="/chats" element={<Chats />} />
+                        <Route path="/cloud" element={<Cloud />} />
                     </Routes>
                 </main>
                 <Footer />

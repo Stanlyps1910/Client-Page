@@ -2,12 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #d4af37;
+  /* Gold */
+  --primary-hover: #b8962e;
+  --bg-dark: #ffffff;
+  /* Reverting to white */
+  --bg-card: #f9f9f9;
+  --text-main: #1a1a1a;
+  /* Dark text for light bg */
+  --text-muted: #666666;
+  --glass: rgba(255, 255, 255, 0.82);
+  --border: rgba(0, 0, 0, 0.08);
+  /* Sophisticated light border */
+  --radius: 20px;
+  /* Global curve variable */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background-color: #f7f5f2;
-  color: #1c1c1c;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
   font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1,
@@ -20,6 +46,45 @@ h6 {
   margin: 0 0 1rem 0;
   font-weight: 400;
   letter-spacing: 0.5px;
+  color: var(--text-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  transition: all 0.3s ease;
+  border-radius: var(--radius);
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 code {
